@@ -15,34 +15,39 @@
 
   <body>
     <a-scene
-      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-      embedded
-      renderer="logarithmicDepthBuffer: true;"
-      vr-mode-ui="enabled: false"
-      gesture-detector
-      id="scene"
+  arjs
+  embedded
+  renderer="logarithmicDepthBuffer: true;"
+  vr-mode-ui="enabled: false"
+  gesture-detector
+  id="scene"
+>
+  <a-assets>
+    <a-asset-item
+      id="bowser"
+      src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"
     >
-      <a-nft
-        type="nft"
-        url="https://jkwee95.github.io/AR_sample/trex-image-big"
-        smooth="true"
-        smoothCount="10"
-        smoothTolerance=".01"
-        smoothThreshold="5"
-        raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
-      >
-        <a-entity
-          gltf-model="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"
-          scale="5 5 5"
-          position="50 150 0"
-          class="clickable"
-          gesture-handler
-        >
-        </a-entity>
-      </a-nft>
-      <a-entity camera></a-entity>
-    </a-scene>
+    </a-asset-item>
+  </a-assets>
+
+  <a-marker
+    preset="hiro"
+    raycaster="objects: .clickable"
+    emitevents="true"
+    cursor="fuse: false; rayOrigin: mouse;"
+    id="markerA"
+  >
+    <a-entity
+      id="bowser-model"
+      gltf-model="#bowser"
+      position="0 0 0"
+      scale="0.05 0.05 0.05"
+      class="clickable"
+      gesture-handler
+    >
+    </a-entity>
+  </a-marker>
+  <a-entity camera></a-entity>
+</a-scene>
   </body>
 </html>
